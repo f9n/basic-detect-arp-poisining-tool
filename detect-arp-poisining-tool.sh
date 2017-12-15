@@ -51,11 +51,32 @@ function Method1 {
     done
 }
 
-function main {
-	# Checking necessary commands
-	checking_necessary_packages
+function Method2 {
+    local ArpTables=""
+    local MacsWithAmounts=""
+    local Amount=""
+    local Mac=""
+    while true; do
+        ArpTables=$(arp -an)
+        MacsWithAmounts=$(echo $ArpTables | awk '{ print $4 }' | sort | uniq -c )
+        for MacWithAmounts in $MacsWithAmounts; do
+            Amount=$(echo $MacWithAmounts | awk '{ print $1 }')
+            Mac=$(echo $MacWithAmounts | awk '{ print $2 }')
+            if $Amount -gt 1; then
+                notify-send 'Arp poisining kurbanisin!'
+                exit 1
+            fi
+        done
+    done
 
-	Method1
+}
+
+function main {
+    # Checking necessary commands
+    checking_necessary_packages
+
+    Method1
+    Method2
 }
 
 main "$@"
