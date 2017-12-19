@@ -6,6 +6,8 @@ Eger arp poisining saldirisi basariyla gerceklesti ise demek ki <b>gateway</b>â€
 Bizde kodumuzda o andaki <b>gateway</b> degerini ogreniyoruz. Sonrasinda hep <b>gateway</b>â€™i kontrol ediyoruz.
 Eger degisiklik var ise demekki saldiriya ugradik.
 
+Ya da Arp tablosunun cache den saldiriya ugradigimiz anlayabiliriz. Eger arp tablosun duplicate mac adresi varsa demekki saldiri yemisiz.
+
 Bu arac icin gerekli araclar:
 <ul>
   <li><b>GnuBash</b></li>
